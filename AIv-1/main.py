@@ -167,8 +167,19 @@ def mark():
                     pyautogui.press('f')
                 elif "add new training" in query.lower() or "add training" in query.lower() or "add a new training" in query.lower():
                     query = query.replace("add new training", "")
+                    query = ("What is the name of the training?")
+                    ttiimmee = takeCommand().lower()
                     with open("training.txt", "a") as f:
-                        f.write("\n" + query + ",")
+                        f.append("\n" + query + " for " + ttiimmee + ",")
+                    speak("Training added")
+                elif "clear console" in query.lower():
+                    speak("Clearing console")
+                    os.system('cls')
+                elif "clear training" in query.lower():
+                    speak("Clearing training")
+                    with open("training.txt", "w") as f:
+                        f.write(",")
+                    speak("Training was cleared")
                 elif "search" in query.lower():
                     query = query.replace("search", "")
                     speak("searching " + query)
