@@ -8,6 +8,7 @@ import os
 import time
 import random
 import pyautogui
+import requests
 
 listener = sr.Recognizer()
 engine = pyttsx3.init("sapi5")
@@ -32,6 +33,31 @@ def speak(audio):
     print("    ")
     engine.say(audio)
     engine.runAndWait()
+
+
+def weather():
+    # tell weather to user using openweathermap
+    api_key = "69e2f2cb7807397cb7f2d5cf6567fd30"
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
+    city_name = "Pezinok"
+    complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+    # now is complete url for weather like:
+    # http://api.openweathermap.org/data/2.5/weather?appid=69e2f2cb7807397cb7f2d5cf6567fd30&q=Pezinok
+    response = requests.get(complete_url)
+    #     tell the user if the weather is clear, cloudy, rain, snow, sunny or thunderstorm
+    x = response.json()
+    if x["weather"][0]["main"] == "Clear":
+        speak("The weather is clear")
+    elif x["weather"][0]["main"] == "Clouds":
+        speak("The weather is cloudy")
+    elif x["weather"][0]["main"] == "Rain":
+        speak("The weather is rainy")
+    elif x["weather"][0]["main"] == "Snow":
+        speak("The weather is snowy")
+    elif x["weather"][0]["main"] == "Thunderstorm":
+        speak("The weather is thunderstorm")
+    else:
+        speak("The weather is not clear")
 
 # speak("Hallo Tom. I am your virtual assistant")
 
@@ -108,6 +134,7 @@ def mark():
                     webbrowser.open("https://www.youtube.com/watch?v=_SGBcmdWgGY&ab_channel=Cubixlol")
                     pyautogui.press('f5')
                     speak("OK. I am playing Don't Stop. The Fat Rat Remix")
+                    pyautogui.press('f5')
                     time.sleep(5)
                     pyautogui.press('t')
                     pyautogui.press('f')
@@ -134,9 +161,18 @@ def mark():
                 elif "play" in query.lower() and "remix" in query.lower():
                     speak("OK. I am playing your favorite remix")
                     webbrowser.open("https://www.youtube.com/watch?v=m2xRXef1MOE&ab_channel=MichaelMusician")
+                    pyautogui.press('f5')
                     time.sleep(5)
                     pyautogui.press('t')
                     pyautogui.press('f')
+                elif "add new training" in query.lower() or "add training" in query.lower() or "add a new training" in query.lower():
+                    query = query.replace("add new training", "")
+                    with open("training.txt", "a") as f:
+                        f.write("\n" + query + ",")
+                elif "search" in query.lower():
+                    query = query.replace("search", "")
+                    speak("searching " + query)
+                    webbrowser.open("https://www.google.com/search?q=" + query)
                 elif "who are you" in query.lower():
                     speak("I am your personal assistant. My name is mark")
                 elif "who made you" in query.lower():
@@ -151,7 +187,7 @@ def mark():
                     pywhatkit.playonyt(song)
                     speak("playing " + song)
                     pyautogui.press('f5')
-                    time.sleep(5)
+                    time.sleep(8)
                     pyautogui.press('t')
                     pyautogui.press('f')
                 elif "window to left" in query.lower():
@@ -191,7 +227,8 @@ def mark():
                     webbrowser.open("https://wikipedia.org")
                     speak("OK. I opened Wikipedia")
                 elif "open programming studio" in query.lower():
-                    os.startfile("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\JetBrains\\PyCharm Community Edition 2022.1.lnk")
+                    os.startfile(
+                        "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\JetBrains\\PyCharm Community Edition 2022.1.lnk")
                     speak("OK. I opened your Programming Studio named PyCharm")
                 elif "search" in query.lower():
                     speak("What do you want to search?")
@@ -233,6 +270,8 @@ def mark():
                     with open("voice.txt", "r") as f:
                         voice = int(f.read())
                     engine.setProperty('voice', voices[voice].id)
+                elif "weather" in query.lower():
+                    weather()
                 elif "tell" in query.lower() and "about you" in query.lower():
                     speak("Let me introduce myself")
                     speak("I am a computer program!")
@@ -247,7 +286,8 @@ def mark():
                     speak("I can also change my voice to Mark or Friday.")
                     speak("If you want to know more about me, just ask 'tell me about yourself'.")
                 elif "thank" in query.lower():
-                    speak(random.choice(["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
+                    speak(random.choice(
+                        ["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
                 elif 'exit' in query.lower() or 'quit' in query.lower() or 'bye' in query.lower() or 'sleep' in query.lower():
                     speak("Bye bye. Have a nice day.")
                     break
