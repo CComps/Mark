@@ -1,0 +1,49 @@
+{
+  "intents": [
+    {
+      "tag": "greetings",
+      "patterns": [
+        "hallo", "hey", "hi", "good day", "good night", "what's up"
+      ],
+      "responses": [
+        "Hi, how can I help you?", "Hello, how can I help you?", "Hi there, how can I help?", "Hi there", "Hello", "Hi", "Hey", "What's up?", "How can I help you?", "what can I do for you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye", "goodbye", "see you later", "see ya", "good night", "good bye"
+      ],
+      "responses": [
+        "Bye, have a good day!", "Bye, take care!", "Bye, have a good night!", "Bye, have a good day!", "Bye, take care!", "Bye, have a good night!"
+      ]
+    },
+    {
+      "tag": "thankyou",
+      "patterns": [
+        "thank you", "thanks", "thank you very much", "thank you so much"
+      ],
+      "responses": [
+        "You're welcome!", "No problem!", "My pleasure!", "Anytime!", "No problem!"
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "how old are you", "what is your age", "how old is"
+      ],
+      "responses": [
+        "I'm a computer program, so I'm not very old.", "I am very young."
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "what is your name", "what's your name", "what is your nick name", "what's your nick name", "what is his name", "what's his name", "what is her name", "what's her name", "what is your surname", "what's your surname", "what is his surname", "what's his surname", "what is her surname", "what's her surname"
+      ],
+      "responses": [
+        "My name is Mark"
+      ]
+    }
+  ]
+}

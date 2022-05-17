@@ -1,0 +1,42 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi"
+        "hello",
+        "hey",
+        "hii",
+        "wake up",
+        "mark"
+      ],
+
+      "responses": [
+        "Hallo sir",
+        "How are you sir",
+        "Always here sir",
+        "At your service sir",
+        "Always here for you sir"
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi"
+        "hello",
+        "hey",
+        "hii",
+        "wake up",
+        "mark"
+      ],
+
+      "responses": [
+        "Hallo sir",
+        "How are you sir",
+        "Always here sir",
+        "At your service sir",
+        "Always here for you sir"
+      ]
+    }
+  ]
+}
