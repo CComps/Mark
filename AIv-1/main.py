@@ -59,6 +59,7 @@ def weather():
     else:
         speak("The weather is not clear")
 
+
 # speak("Hallo Tom. I am your virtual assistant")
 
 if voice == "1":
@@ -121,7 +122,11 @@ def mark():
             speak("How was your day look like?")
             while 1:
                 query = takeCommand().lower()
-                if "good" in query.lower():
+                if 'exit' in query.lower() or 'quit' in query.lower() or 'goodbye' in query.lower() or \
+                        'sleep' in query.lower():
+                    speak("Bye bye. Have a nice day.")
+                    break
+                elif "good" in query.lower():
                     speak("Good to hear that")
                     speak("what else can I do for you?")
                 elif "bad" in query.lower():
@@ -130,9 +135,6 @@ def mark():
                 elif "the worst" in query.lower():
                     speak("I am sorry to hear that")
                     speak("what else can I do for you?")
-                elif "goodbye" in query.lower():
-                    speak("Goodbye")
-                    break
                 else:
                     if "open youtube" in query.lower():
                         webbrowser.open("https://youtube.com")
@@ -254,8 +256,11 @@ def mark():
                         speak("OK. I opened Wikipedia")
                     elif "open programming studio" in query.lower():
                         os.startfile(
-                            "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\JetBrains\\PyCharm Community Edition 2022.1.lnk")
+                            "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\JetBrains\\"
+                            "PyCharm Community Edition 2022.1.lnk")
                         speak("OK. I opened your Programming Studio named PyCharm")
+                    elif "how" in query.lower() and "day" in query.lower() and "you" in query.lower():
+                        speak("My day was good")
                     elif "search" in query.lower():
                         speak("What do you want to search?")
                         search = takeCommand().lower()
@@ -314,10 +319,6 @@ def mark():
                     elif "thank" in query.lower():
                         speak(random.choice(
                             ["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
-                    elif 'exit' in query.lower() or 'quit' in query.lower() or 'bye' in query.lower() or\
-                            'sleep' in query.lower():
-                        speak("Bye bye. Have a nice day.")
-                        break
                     elif "what can you do" in query.lower():
                         speak("I can search Wikipedia, open YouTube, play music, open Google, open Stack Overflow, "
                               "open GitHub(programming app), open Whatsapp, tell you time, tell you date, control your "

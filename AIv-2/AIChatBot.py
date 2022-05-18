@@ -1,6 +1,6 @@
 import json
 import nltk
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import *
 
 lmt = WordNetLemmatizer()
 
@@ -9,7 +9,8 @@ intents = json.loads(open('intents.json').read())
 words = []
 classes = []
 documents = []
-ignore_words = ['?', '!', '.', ',', ':', ';', '-', '_', '*', '#', '@', '$', '%', '^', '&', '+', '=', '~', '`', '{', '}', '|', '\\', '<', '>', '"', "'", '(', ')', '[', ']', '\n', '\t', '\r']
+ignore_words = ['?', '!', '.', ',', ':', ';', '-', '_', '*', '#', '@', '$', '%', '^', '&', '+', '=', '~', '`', '{', '}',
+                '|', '\\', '<', '>', '"', "'", '(', ')', '[', ']', '\n', '\t', '\r']
 
 for intent in intents['intents']:
     for pattern in intent['patterns']:
