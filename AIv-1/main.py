@@ -115,16 +115,18 @@ def takeCommand():
 
 
 def mark():
+    speak("How was your day look like?")
     query = takeCommand().lower()
     if "good" in query.lower():
         speak("Good to hear that")
-        speak("what else can I do for you?")
+    elif "great" in query.lower():
+        speak("That's great to hear")
+    elif "nice" in query.lower():
+        speak("Very nice to hear")
     elif "bad" in query.lower():
         speak("I am sorry to hear that")
-        speak("what else can I do for you?")
     elif "the worst" in query.lower():
         speak("I am sorry to hear that")
-        speak("what else can I do for you?")
     else:
         pass
     while True:
