@@ -92,12 +92,20 @@ def wishMe():
     hour = datetime.datetime.now().hour
     if 6 <= hour < 12:
         speak("good morning boss")
+        speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
+                             "how can I help you?"]))
     elif 12 <= hour < 18:
         speak("good afternoon boss")
+        speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
+                             "how can I help you?"]))
     elif 18 <= hour < 24:
         speak("good evening boss")
+        speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
+                             "how can I help you?"]))
     else:
         speak("good night boss")
+        speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
+                             "how can I help you?"]))
 
 
 def takeCommand():
@@ -133,7 +141,6 @@ def mark():
         query = takeCommand().lower()
         if "wake up" in query:
             wishMe()
-            speak("How was your day look like?")
             while 1:
                 query = takeCommand().lower()
                 if "open youtube" in query.lower():
