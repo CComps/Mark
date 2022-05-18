@@ -115,6 +115,18 @@ def takeCommand():
 
 
 def mark():
+    query = takeCommand().lower()
+    if "good" in query.lower():
+        speak("Good to hear that")
+        speak("what else can I do for you?")
+    elif "bad" in query.lower():
+        speak("I am sorry to hear that")
+        speak("what else can I do for you?")
+    elif "the worst" in query.lower():
+        speak("I am sorry to hear that")
+        speak("what else can I do for you?")
+    else:
+        pass
     while True:
         query = takeCommand().lower()
         if "wake up" in query:
@@ -122,20 +134,6 @@ def mark():
             speak("How was your day look like?")
             while 1:
                 query = takeCommand().lower()
-                if 'exit' in query.lower() or 'quit' in query.lower() or 'goodbye' in query.lower() or \
-                        'sleep' in query.lower():
-                    speak("Bye bye. Have a nice day.")
-                    break
-                elif "good" in query.lower():
-                    speak("Good to hear that")
-                    speak("what else can I do for you?")
-                elif "bad" in query.lower():
-                    speak("I am sorry to hear that")
-                    speak("what else can I do for you?")
-                elif "the worst" in query.lower():
-                    speak("I am sorry to hear that")
-                    speak("what else can I do for you?")
-                else:
                     if "open youtube" in query.lower():
                         webbrowser.open("https://youtube.com")
                         speak("OK. I opened YouTube")
@@ -294,6 +292,9 @@ def mark():
                         with open("voice.txt", "r") as f:
                             voice = int(f.read())
                         engine.setProperty('voice', voices[voice].id)
+                    elif "you" in query.lower() and "sure" in query.lower():
+                        speak("Yes")
+                        speak("I am Always sure")
                     elif "change to mark" in query.lower() or "change to marc" in query.lower():
                         speak("I am changing to Mark")
                         with open("voice.txt", "w") as f:
@@ -319,6 +320,10 @@ def mark():
                     elif "thank" in query.lower():
                         speak(random.choice(
                             ["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
+                    elif 'exit' in query.lower() or 'quit' in query.lower() or 'goodbye' in query.lower() or \
+                            'sleep' in query.lower():
+                        speak("Bye bye. Have a nice day.")
+                        break
                     elif "what can you do" in query.lower():
                         speak("I can search Wikipedia, open YouTube, play music, open Google, open Stack Overflow, "
                               "open GitHub(programming app), open Whatsapp, tell you time, tell you date, control your "
