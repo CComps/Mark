@@ -173,7 +173,6 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         audio = r.listen(source, 0, 3)
-
     try:
         query = r.recognize_google(audio, language='en-in')  # en-in
         print(f"you: {query}\n")  # User query will be printed.
@@ -246,8 +245,7 @@ def mark():
                     speak("Training was cleared")
                 elif "search" in query.lower():
                     query = query.replace("search", "")
-                    speak("searching " + query)
-                    webbrowser.open("https://www.google.com/search?q=" + query)
+                    pywhatkit.search(query)
                 elif "who are you" in query.lower():
                     speak("I am your personal assistant. My name is mark")
                 elif "who made you" in query.lower():
@@ -359,7 +357,7 @@ def mark():
                     speak("I was made by Tom")
                     speak("I was created on December 2021")
                     speak("I am version A.2")
-                    speak("if you want to know what can I do for you, say 'what can you do?!'")
+                    speak("if you want to know what can I do for you, just ask 'what can you do?'")
                 elif "intro" in query.lower():
                     os.startfile("C:\\Users\\Mark\\Desktop\\Intro.mp4")
                     speak("Hello, I am Friday. Your personal assistant. I am here to help you.")
@@ -369,12 +367,6 @@ def mark():
                 elif "thank" in query.lower():
                     speak(random.choice(
                         ["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
-                elif "open minecraft" in query.lower():
-                    speak("Opening Minecraft")
-                    os.startfile("C:\\Users\\Mark\\Desktop\\Minecraft Launcher.exe")
-                elif "open php storm" in query.lower():
-                    speak("Opening PHP Storm")
-                    os.startfile("C:\\Users\\Mark\\Desktop\\PhpStorm 2019.2.exe")
                 elif "on the light" in query.lower():
                     speak("turning on the light")
                 elif "off the light" in query.lower():
