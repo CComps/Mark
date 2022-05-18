@@ -231,13 +231,6 @@ def mark():
                     time.sleep(5)
                     pyautogui.press('t')
                     pyautogui.press('f')
-                elif "add new training" in query.lower() or "add training" in query.lower() or "add a new training" in query.lower():
-                    query = query.replace("add new training", "")
-                    query = ("What is the name of the training?")
-                    ttiimmee = takeCommand().lower()
-                    with open("training.txt", "a") as f:
-                        f.append("\n" + query + " for " + ttiimmee + ",")
-                    speak("Training added")
                 elif "clear console" in query.lower():
                     speak("Clearing console")
                     os.system('cls')
@@ -371,6 +364,20 @@ def mark():
                 elif "thank" in query.lower():
                     speak(random.choice(
                         ["You're welcome", "No problem", "My pleasure", "It was my pleasure to help you"]))
+                elif "open minecraft" in query.lower():
+                    speak("Opening Minecraft")
+                    os.startfile("C:\\Users\\Mark\\Desktop\\Minecraft Launcher.exe")
+                elif "open php storm" in query.lower():
+                    speak("Opening PHP Storm")
+                    os.startfile("C:\\Users\\Mark\\Desktop\\PhpStorm 2019.2.exe")
+                elif "on the light" in query.lower():
+                    speak("turning on the light")
+                elif "off the light" in query.lower():
+                    speak("turning off the light")
+                elif "lock the door" in query.lower():
+                    speak("locking the door")
+                elif "unlock the door" in query.lower():
+                    speak("unlocking the door")
                 elif 'exit' in query.lower() or 'quit' in query.lower() or 'goodbye' in query.lower() or \
                         'sleep' in query.lower():
                     speak("Bye bye. Have a nice day.")
