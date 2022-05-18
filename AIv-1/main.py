@@ -92,18 +92,74 @@ def wishMe():
     hour = datetime.datetime.now().hour
     if 6 <= hour < 12:
         speak("good morning boss")
+        speak("How was your day look like?")
+        query = takeCommand().lower()
+        if "good" in query.lower():
+            speak("Good to hear that")
+        elif "great" in query.lower():
+            speak("That's great to hear")
+        elif "nice" in query.lower():
+            speak("Very nice to hear")
+        elif "bad" in query.lower():
+            speak("I am sorry to hear that")
+        elif "the worst" in query.lower():
+            speak("I am sorry to hear that")
+        else:
+            pass
         speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
                              "how can I help you?"]))
     elif 12 <= hour < 18:
         speak("good afternoon boss")
+        speak("How was your day look like?")
+        query = takeCommand().lower()
+        if "good" in query.lower():
+            speak("Good to hear that")
+        elif "great" in query.lower():
+            speak("That's great to hear")
+        elif "nice" in query.lower():
+            speak("Very nice to hear")
+        elif "bad" in query.lower():
+            speak("I am sorry to hear that")
+        elif "the worst" in query.lower():
+            speak("I am sorry to hear that")
+        else:
+            pass
         speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
                              "how can I help you?"]))
-    elif 18 <= hour < 24:
+    elif 18 <= hour < 22:
         speak("good evening boss")
+        speak("How was your day look like?")
+        query = takeCommand().lower()
+        if "good" in query.lower():
+            speak("Good to hear that")
+        elif "great" in query.lower():
+            speak("That's great to hear")
+        elif "nice" in query.lower():
+            speak("Very nice to hear")
+        elif "bad" in query.lower():
+            speak("I am sorry to hear that")
+        elif "the worst" in query.lower():
+            speak("I am sorry to hear that")
+        else:
+            pass
         speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
                              "how can I help you?"]))
     else:
         speak("good night boss")
+        speak("How was your day look like?")
+        query = takeCommand().lower()
+        if "good" in query.lower():
+            speak("Good to hear that")
+        elif "great" in query.lower():
+            speak("That's great to hear")
+        elif "nice" in query.lower():
+            speak("Very nice to hear")
+        elif "bad" in query.lower():
+            speak("I am sorry to hear that")
+        elif "the worst" in query.lower():
+            speak("I am sorry to hear that")
+        else:
+            pass
         speak(random.choice(["How can I help you with?", "What can I do for you?", "What can I do for you today?",
                              "how can I help you?"]))
 
@@ -123,20 +179,6 @@ def takeCommand():
 
 
 def mark():
-    speak("How was your day look like?")
-    query = takeCommand().lower()
-    if "good" in query.lower():
-        speak("Good to hear that")
-    elif "great" in query.lower():
-        speak("That's great to hear")
-    elif "nice" in query.lower():
-        speak("Very nice to hear")
-    elif "bad" in query.lower():
-        speak("I am sorry to hear that")
-    elif "the worst" in query.lower():
-        speak("I am sorry to hear that")
-    else:
-        pass
     while True:
         query = takeCommand().lower()
         if "wake up" in query:
