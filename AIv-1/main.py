@@ -50,26 +50,7 @@ def weather():
     x = response.json()
 
     if x["weather"][0]["main"] == "Clear":
-        speak("The weather is clear")
-        speak("Enjoy your day becuse it is sunny today")
-
-    elif x["weather"][0]["main"] == "Clouds":
-        speak("The weather is cloudy")
-        speak("I know its not the best but it is ok")
-
-    elif x["weather"][0]["main"] == "Rain":
-        speak("The weather is rainy")
-        speak("I know its very bad but it can be worse")
-
-    elif x["weather"][0]["main"] == "Snow":
-        speak("The weather is snowy")
-        speak("Its very good day becuse you can go outside and enjoy the snow")
-
-    elif x["weather"][0]["main"] == "Thunderstorm":
-        speak("The weather is thunderstorm")
-        speak("I don't kow what is worse than this")
-    else:
-        pass
+    speak()
 
 
 # speak("Hallo Tom. I am your virtual assistant")
@@ -276,6 +257,14 @@ def mark():
                 elif "play" in query.lower() and "remix" in query.lower():
                     speak("OK. I am playing your favorite remix")
                     webbrowser.open("https://www.youtube.com/watch?v=m2xRXef1MOE&ab_channel=MichaelMusician")
+                    pyautogui.press('f5')
+                    time.sleep(5)
+                    pyautogui.press('t')
+                    pyautogui.press('f')
+
+                elif "play" in query.lower() and "darkside" in query.lower() or "pvp" in query.lower():
+                    webbrowser.open("https://www.youtube.com/watch?v=Pshpvh0YLiU&ab_channel=RyanPlayzPH")
+                    speak("OK. I am playing Darkside")
                     pyautogui.press('f5')
                     time.sleep(5)
                     pyautogui.press('t')
