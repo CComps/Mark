@@ -50,7 +50,8 @@ def weather():
     x = response.json()
 
     if x["weather"][0]["main"] == "Clear":
-    speak()
+    speak("The weather is CLEAR")
+    speak("")
 
 
 # speak("Hallo Tom. I am your virtual assistant")
